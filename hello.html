@@ -7,7 +7,7 @@
     <style>
         body {
             margin: 0;
-            height: 100vh;
+            height: 100rem;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -16,32 +16,32 @@
         }
         .container {
             text-align: center;
-            padding: 40px 20px;
+            padding: 4rem 2rem;
         }
         /* 卡通形象 */
         .icon {
-            width: 120px;
-            height: 120px;
-            margin-bottom: 20px;
+            width: 12rem;
+            height: 12rem;
+            margin-bottom: 2rem;
         }
         .text {
-            font-size: 22px;
+            font-size: 2rem;
             color: #333;
-            margin-bottom: 30px;
+            margin-bottom: 3rem;
         }
         /* 按钮样式 */
         .btn-group {
             display: flex;
-            gap: 20px;
+            gap: 2rem;
             justify-content: center;
         }
         .btn {
-            padding: 15px 30px;
+            padding: 1rem 3rem;
             border: none;
-            border-radius: 30px;
-            font-size: 18px;
+            border-radius: 3rem;
+            font-size: 1rem;
             cursor: pointer;
-            transition: all 0.3s;
+            transition: all 0.5s ease; /* 动画过渡更丝滑 */
         }
         .yes-btn {
             background-color: #ff4d6d;
@@ -51,35 +51,53 @@
             background-color: #999;
             color: white;
         }
+        /* 按钮变大/变小的样式类 */
+        .yes-btn.bigger {
+            padding: 2rem 4rem;
+            font-size: 2rem;
+            transform: scale(1.2);
+        }
+        .no-btn.smaller {
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            transform: scale(0.8);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <!-- 卡通图标（可替换成自己的图片） -->
+        <!-- 卡通图标 -->
         <img src="picture1.jpg" class="icon" alt="委屈形象">
         <div class="text">可以跟我和好吗？</div>
         <div class="btn-group">
             <button class="btn yes-btn" onclick="agree()">可以</button>
-            <button class="btn no-btn" onclick="refuse()">不再想想？</button>
+            <button class="btn no-btn" onclick="refuse()">不再想想？这个网页我写好久的了！</button>
         </div>
     </div>
 
     <script>
+        const yesBtn = document.querySelector(".yes-btn");
+        const noBtn = document.querySelector(".no-btn");
+
         // 同意后的效果
         function agree() {
             alert("太好了！我们和好吧~❤️");
-            // 可以添加更多动画效果，比如页面变色、图标变化等
             document.body.style.backgroundColor = "#ff9eb5";
         }
 
-        // 拒绝后的效果（可以加“按钮逃跑”“文字变化”等趣味互动）
+        // 拒绝后的效果：按钮变小+可以按钮变大+按钮移动
         function refuse() {
-            const noBtn = document.querySelector(".no-btn");
-            // 简单示例：按钮位置随机移动
-            const randomX = Math.random() * 200 - 100; // 左右偏移
-            const randomY = Math.random() * 100 - 50;  // 上下偏移
-            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
-            // 也可以修改按钮文字，比如“再考虑下嘛~”
+            // 拒绝按钮变小
+            noBtn.classList.add("smaller");
+            // 可以按钮变大
+            yesBtn.classList.add("bigger");
+            
+            // 拒绝按钮随机移动
+            const randomX = Math.random() * 200 - 100;
+            const randomY = Math.random() * 100 - 50;
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px) scale(0.8)`;
+            
+            // 按钮文字变化
             noBtn.innerText = "再考虑下嘛~";
         }
     </script>
