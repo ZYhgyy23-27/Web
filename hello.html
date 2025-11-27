@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>可以跟我和好吗？</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #ffd6e0; /* 粉色背景 */
+            font-family: "微软雅黑", sans-serif;
+        }
+        .container {
+            text-align: center;
+            padding: 40px 20px;
+        }
+        /* 卡通形象 */
+        .icon {
+            width: 120px;
+            height: 120px;
+            margin-bottom: 20px;
+        }
+        .text {
+            font-size: 22px;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        /* 按钮样式 */
+        .btn-group {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .yes-btn {
+            background-color: #ff4d6d;
+            color: white;
+        }
+        .no-btn {
+            background-color: #999;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 卡通图标（可替换成自己的图片） -->
+        <img src="picture1.jpg" class="icon" alt="委屈形象">
+        <div class="text">可以跟我和好吗？</div>
+        <div class="btn-group">
+            <button class="btn yes-btn" onclick="agree()">可以</button>
+            <button class="btn no-btn" onclick="refuse()">不再想想？</button>
+        </div>
+    </div>
+
+    <script>
+        // 同意后的效果
+        function agree() {
+            alert("太好了！我们和好吧~❤️");
+            // 可以添加更多动画效果，比如页面变色、图标变化等
+            document.body.style.backgroundColor = "#ff9eb5";
+        }
+
+        // 拒绝后的效果（可以加“按钮逃跑”“文字变化”等趣味互动）
+        function refuse() {
+            const noBtn = document.querySelector(".no-btn");
+            // 简单示例：按钮位置随机移动
+            const randomX = Math.random() * 200 - 100; // 左右偏移
+            const randomY = Math.random() * 100 - 50;  // 上下偏移
+            noBtn.style.transform = `translate(${randomX}px, ${randomY}px)`;
+            // 也可以修改按钮文字，比如“再考虑下嘛~”
+            noBtn.innerText = "再考虑下嘛~";
+        }
+    </script>
+</body>
+</html>
